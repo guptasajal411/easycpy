@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,400&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico">
+    <title>EasyCpy!</title>
+</head>
+<body>  
+    <nav class="navbar">
+        <h4 class="brandName">EASYCPY!</h4>
+        <ul class="navbarList">
+            <li class="navbarItems">Home</li>
+            <li class="navbarItems">About</li>
+            <li class="navbarItems">Contact</li>
+        </ul>
+    </nav>
+
+    <h1 class="heading">Ctrl-C Ctrl-V made easy.</h1>
+    <input type="text" id="myInput" class="clipboard" placeholder="Paste here...">
+    <div class="btnWrapper">
+        <div class="anim-btn">
+            <button value="hello world" class="anim-btn__button" onclick="copyToClipboard()">Copy to clipboard</button>
+            <div class="anim-btn__overlay"></div>
+        </div>
+        <div class="anim-btn">
+            <button onclick="document.getElementById('myInput').value = ''; focusInput()" class="anim-btn__button">Add new text</button>
+            <div class="anim-btn__overlay"></div>
+        </div>
+        <div class="anim-btn">
+            <button class="anim-btn__button">Sync your text!</button>
+            <div class="anim-btn__overlay"></div>
+        </div>
+    </div>
+    <script>
+        function copyToClipboard() { 
+          var copyText = document.getElementById("myInput");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+          alert("Copied the text: " + copyText.value);
+        }
+        function focusInput() {
+            document.getElementById("myInput").focus();
+        }
+        </script>
+</body>
+</html>
